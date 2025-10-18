@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ASAG - Clínica Comportamental Especializada</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      :root {
+        --azul: #2a5c9a;
+        --verde: #4caf8a;
+        --rosa: #e87b9d;
+        --cinza-claro: #f5f7fa;
+        --cinza-escuro: #333333;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      body {
+        color: var(--cinza-escuro);
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* Header */
+      header {
+        background-color: white;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        position: fixed;
+        width: 100%;
+        z-index: 100;
+      }
+
+      .header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 0;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+      }
+
+      .logo-icon {
+        width: 80px;
+        height: 60px;
+        margin-right: 15px;
+      }
+
+      .logo-icon img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      .logo-text h1 {
+        font-size: 20px;
+        color: var(--azul);
+        font-weight: 300;
+      }
+
+      .logo-text span {
+        color: var(--verde);
+      }
+
+      nav ul {
+        display: flex;
+        list-style: none;
+      }
+
+      nav ul li {
+        margin-left: 30px;
+      }
+
+      nav ul li a {
+        text-decoration: none;
+        color: var(--cinza-escuro);
+        font-weight: 500;
+        transition: color 0.3s;
+      }
+
+      nav ul li a:hover {
+        color: var(--rosa);
+      }
+
+      .btn-contato {
+        background-color: var(--rosa);
+        color: white;
+        padding: 10px 20px;
+        border-radius: 30px;
+        font-weight: 600;
+        transition: background-color 0.3s;
+      }
+
+      .btn-contato:hover {
+        background-color: #d76a8a;
+        color: white;
+      }
+
+      /* Hero Section */
+      .hero {
+        background-color: var(--cinza-claro);
+        padding: 180px 0 100px;
+        text-align: center;
+      }
+
+      .hero h2 {
+        font-size: 42px;
+        margin-bottom: 20px;
+        color: var(--azul);
+      }
+
+      .hero p {
+        font-size: 18px;
+        max-width: 700px;
+        margin: 0 auto 20px;
+      }
+
+      .hero-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+      }
+
+      .btn {
+        padding: 15px 30px;
+        border-radius: 30px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s;
+      }
+
+      .btn-primary {
+        background-color: var(--verde);
+        color: white;
+      }
+
+      .btn-primary:hover {
+        background-color: #3b9a7a;
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(76, 175, 138, 0.3);
+      }
+
+      .btn-secondary {
+        background-color: white;
+        color: var(--azul);
+        border: 2px solid var(--azul);
+      }
+
+      .btn-secondary:hover {
+        background-color: var(--azul);
+        color: white;
+        transform: translateY(-3px);
+      }
+
+      /* Serviços */
+      .servicos {
+        padding: 100px 0;
+      }
+
+      .section-title {
+        text-align: center;
+        margin-bottom: 60px;
+      }
+
+      .section-title h2 {
+        font-size: 36px;
+        color: var(--azul);
+        margin-bottom: 15px;
+      }
+
+      .section-title p {
+        max-width: 700px;
+        margin: 0 auto;
+        color: #666;
+      }
+
+      .servicos-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+      }
+
+      .servico-card {
+        background-color: white;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+
+      .servico-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .servico-img {
+        height: 200px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .servico-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s;
+      }
+
+      .servico-card:hover .servico-img img {
+        transform: scale(1.1);
+      }
+
+      .servico-icon {
+        position: absolute;
+        bottom: -25px;
+        right: 20px;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        color: white;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .servico-aba .servico-icon {
+        background-color: var(--azul);
+      }
+
+      .servico-psico .servico-icon {
+        background-color: var(--rosa);
+      }
+
+      .servico-ludico .servico-icon {
+        background-color: var(--verde);
+      }
+
+      .servico-aee .servico-icon {
+        background-color: var(--azul);
+      }
+
+      .servico-content {
+        padding: 30px;
+      }
+
+      .servico-content h3 {
+        font-size: 22px;
+        margin-bottom: 15px;
+        color: var(--azul);
+      }
+
+      .servico-content p {
+        color: #666;
+        margin-bottom: 20px;
+      }
+
+      .servico-link {
+        display: inline-flex;
+        align-items: center;
+        color: var(--rosa);
+        font-weight: 500;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .servico-link:hover {
+        color: var(--azul);
+      }
+
+      .servico-link i {
+        margin-left: 5px;
+        transition: transform 0.3s;
+      }
+
+      .servico-link:hover i {
+        transform: translateX(5px);
+      }
+
+      /* Sobre */
+      .sobre {
+        padding: 100px 0;
+        background-color: var(--cinza-claro);
+      }
+
+      .sobre-container {
+        display: flex;
+        align-items: center;
+        gap: 50px;
+      }
+
+      .sobre-img {
+        flex: 1;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .sobre-img img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      .sobre-text {
+        flex: 1;
+      }
+
+      .sobre-text h2 {
+        font-size: 36px;
+        color: var(--azul);
+        margin-bottom: 20px;
+      }
+
+      .sobre-text p {
+        margin-bottom: 20px;
+      }
+
+      .sobre-list {
+        margin-top: 30px;
+      }
+
+      .sobre-list li {
+        margin-bottom: 15px;
+        list-style: none;
+        position: relative;
+        padding-left: 30px;
+      }
+
+      .sobre-list li i {
+        color: var(--verde);
+        position: absolute;
+        left: 0;
+        top: 5px;
+      }
+
+      /* Contato */
+      .contato {
+        padding: 100px 0;
+        text-align: center;
+      }
+
+      .contato-info {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        margin-top: 50px;
+        flex-wrap: wrap;
+      }
+
+      .info-card {
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        width: 280px;
+        transition: transform 0.3s;
+      }
+
+      .info-card:hover {
+        transform: translateY(-10px);
+      }
+
+      .info-card i {
+        font-size: 40px;
+        margin-bottom: 20px;
+        color: var(--rosa);
+      }
+
+      .info-card h3 {
+        margin-bottom: 15px;
+        color: var(--azul);
+      }
+
+      .info-card p {
+        color: #666;
+      }
+
+      .telefone {
+        font-size: 20px;
+        font-weight: 700;
+        color: var(--verde);
+        margin-top: 10px;
+        display: block;
+      }
+
+      /* Footer */
+      footer {
+        background-color: var(--azul);
+        color: white;
+        padding: 50px 0 20px;
+      }
+
+      .footer-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 40px;
+        margin-bottom: 40px;
+      }
+
+      .footer-col h3 {
+        font-size: 20px;
+        margin-bottom: 25px;
+        position: relative;
+        padding-bottom: 10px;
+      }
+
+      .footer-col h3::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 50px;
+        height: 2px;
+        background-color: var(--rosa);
+      }
+
+      .footer-col p {
+        margin-bottom: 20px;
+        opacity: 0.8;
+      }
+
+      footer .logo-icon img {
+        filter: brightness(0) invert(1);
+      }
+
+      .footer-links li {
+        margin-bottom: 15px;
+        list-style: none;
+      }
+
+      .footer-links a {
+        color: white;
+        opacity: 0.8;
+        text-decoration: none;
+        transition: opacity 0.3s;
+      }
+
+      .footer-links a:hover {
+        opacity: 1;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 15px;
+      }
+
+      .social-links a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        color: white;
+        transition: background-color 0.3s;
+      }
+
+      .social-links a:hover {
+        background-color: var(--rosa);
+      }
+
+      .footer-bottom {
+        text-align: center;
+        padding-top: 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        font-size: 14px;
+        opacity: 0.7;
+      }
+
+      /* Responsivo */
+      @media (max-width: 768px) {
+        header {
+          min-height: 120px;
+        }
+
+        .header-container {
+          flex-direction: column;
+          padding: 15px 0;
+          min-height: 120px;
+        }
+
+        .logo {
+          margin-bottom: 15px;
+        }
+
+        nav ul {
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+
+        nav ul li {
+          margin: 0 10px 10px;
+        }
+
+        .hero {
+          padding: 220px 0 80px;
+        }
+
+        .hero h2 {
+          font-size: 32px;
+        }
+
+        .hero-buttons {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .sobre-container {
+          flex-direction: column;
+        }
+
+        .section-title h2 {
+          font-size: 30px;
+        }
+
+        .servico-img {
+          height: 180px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="container header-container">
+        <div class="logo">
+          <div class="logo-icon">
+            <img
+              src="imagem/logo-asag.jpg"
+              alt="ASAG Clínica Comportamental Logo"
+            />
+          </div>
+          <div class="logo-text">
+            <h1>ASAG <span>Clínica</span></h1>
+          </div>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="INDEX.HTML">Serviços</a></li>
+            <li><a href="#sobre">Sobre Nós</a></li>
+            <li><a href="#contato">Contato</a></li>
+            <li>
+              <a href="https://wa.me/5591986438975" class="btn-contato"
+                >Agendar Consulta</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <h2>Especializados em Terapia ABA para Crianças e Adolescentes</h2>
+        <p>
+          Oferecemos atendimento psicológico especializado, atividades lúdicas e
+          pedagógicas, e sala de AEE para promover o desenvolvimento completo do
+          seu filho.
+        </p>
+        <div class="hero-buttons">
+          <a href="https://wa.me/5591986438975" class="btn btn-primary">
+            <i class="fab fa-whatsapp"></i> WhatsApp
+          </a>
+          <a href="#contato" class="btn btn-secondary">Fale Conosco</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Serviços -->
+    <section class="servicos" id="servicos">
+      <div class="container">
+        <div class="section-title">
+          <h2>Nossos Serviços</h2>
+          <p>
+            Oferecemos atendimento especializado com uma equipe multidisciplinar
+            preparada para acolher e desenvolver o potencial de cada criança.
+          </p>
+        </div>
+        <div class="servicos-grid">
+          <div class="servico-card servico-aba">
+            <div class="servico-img">
+              <img src="imagem/aba.jpg" alt="Terapia ABA" />
+              <div class="servico-icon">
+                <i class="fas fa-brain"></i>
+              </div>
+            </div>
+            <div class="servico-content">
+              <h3>Terapia ABA</h3>
+              <p>
+                Análise do Comportamento Aplicada (ABA) com métodos científicos
+                para desenvolvimento de habilidades sociais, comunicação e
+                comportamento.
+              </p>
+              <a href="terapia-aba.html" class="servico-link">
+                Saiba mais <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+          <div class="servico-card servico-psico">
+            <div class="servico-img">
+              <img src="imagem/psicologia.jpg" alt="Atendimento Psicológico" />
+              <div class="servico-icon">
+                <i class="fas fa-heart"></i>
+              </div>
+            </div>
+            <div class="servico-content">
+              <h3>Atendimento Psicológico</h3>
+              <p>
+                Acompanhamento psicológico especializado para crianças e
+                adolescentes, com abordagem cognitivo-comportamental.
+              </p>
+              <a href="atendimento-psicologia.html" class="servico-link">
+                Saiba mais <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+          <div class="servico-card servico-ludico">
+            <div class="servico-img">
+              <img
+                src="imagem/BrinquedoSensorialAutismo-MaoePe_9 (1).jpg"
+                alt="Atividades Lúdicas"
+              />
+              <div class="servico-icon">
+                <i class="fas fa-gamepad"></i>
+              </div>
+            </div>
+            <div class="servico-content">
+              <h3>Atividades Lúdicas</h3>
+              <p>
+                Intervenções pedagógicas através de brincadeiras e jogos que
+                estimulam o desenvolvimento cognitivo e emocional.
+              </p>
+              <a href="atividades-ludicas.html" class="servico-link">
+                Saiba mais <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+          <div class="servico-card servico-aee">
+            <div class="servico-img">
+              <img src="imagem/AEE.jpg" alt="Sala de AEE" />
+              <div class="servico-icon">
+                <i class="fas fa-school"></i>
+              </div>
+            </div>
+            <div class="servico-content">
+              <h3>Sala de AEE</h3>
+              <p>
+                Atendimento Educacional Especializado para complementar o
+                desenvolvimento escolar com recursos e estratégias específicas.
+              </p>
+              <a href="sala-aee.html" class="servico-link">
+                Saiba mais <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+          <div class="servico-card servico-aee">
+            <div class="servico-img">
+              <img src="imagem/TREINAMENTO TEA.png" alt=" TREINAMENTOS TEA" />
+              <div class="servico-icon">
+                <i class="fas fa-school"></i>
+              </div>
+            </div>
+            <div class="servico-content">
+              <h3>Treinamentos TEA</h3>
+              <p>
+                Curso de Aperfeiçoamento em "Transtorno do Espectro Autista:
+                saberes e práticas educacionais inclusivas.
+              </p>
+              <a href="treinamento-tea.html" class="servico-link">
+                Saiba mais <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+          <div class="servico-card servico-aee">
+            <div class="servico-img">
+              <img src="imagem/Terapia-ABA (PARENTAL).jpg" alt="TERAPIA-ABA" />
+              <div class="servico-icon">
+                <i class="fas fa-school"></i>
+              </div>
+            </div>
+            <div class="servico-content">
+              <h3>Terapia-ABA Parental</h3>
+              <p>
+                O Papel Fundamental dos Pais no Desenvolvimento das Crianças.
+              </p>
+              <a href="terapia-aba-parental.html" class="servico-link">
+                Saiba mais <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sobre -->
+    <section class="sobre" id="sobre">
+      <div class="container sobre-container">
+        <div class="sobre-img">
+          <img src="imagem/EQUIPE.jpg" alt="Equipe da Clínica" />
+        </div>
+        <div class="sobre-text">
+          <h2>Sobre a ASAG Clínica</h2>
+          <p>
+            A ASAG Clínica é especializada em terapia comportamental com foco no
+            método ABA (Applied Behavior Analysis), atendendo crianças e
+            adolescentes com necessidades especiais.
+          </p>
+          <p>
+            Nossa equipe é formada por profissionais qualificados e
+            comprometidos com o desenvolvimento integral de cada paciente,
+            oferecendo um ambiente acolhedor e estimulante.
+          </p>
+          <ul class="sobre-list">
+            <li>
+              <i class="fas fa-check"></i> Equipe multidisciplinar especializada
+            </li>
+            <li><i class="fas fa-check"></i> Ambiente lúdico e acolhedor</li>
+            <li><i class="fas fa-check"></i> Abordagem individualizada</li>
+            <li>
+              <i class="fas fa-check"></i> Parceria com famílias e escolas
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contato -->
+    <section class="contato" id="contato">
+      <div class="container">
+        <div class="section-title">
+          <h2>Entre em Contato</h2>
+          <p>
+            Estamos à disposição para esclarecer dúvidas e agendar uma avaliação
+            inicial sem compromisso.
+          </p>
+        </div>
+        <div class="contato-info">
+          <div class="info-card">
+            <i class="fas fa-phone-alt"></i>
+            <h3>Telefone</h3>
+            <p>Ligue para agendar uma consulta</p>
+            <span class="telefone">(91) 98643-8975</span>
+          </div>
+          <div class="info-card">
+            <i class="fas fa-envelope"></i>
+            <h3>Email</h3>
+            <p>Envie suas dúvidas por email</p>
+            <p>contato@asagclinica.com.br</p>
+          </div>
+          <div class="info-card">
+            <i class="fas fa-map-marker-alt"></i>
+            <h3>Endereço</h3>
+            <p>
+              Av. Gentil Bittencourt, Nº 2490A<br />Bairro São Bráz - Belém/PA
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-container">
+          <div class="footer-col">
+            <div class="logo">
+              <div class="logo-icon">
+                <img
+                  src="imagem/logo-asag.jpg"
+                  alt="ASAG Clínica Comportamental Logo"
+                />
+              </div>
+              <div class="logo-text">
+                <h1 style="color: white">
+                  ASAG <span style="color: var(--verde)">Clínica</span>
+                </h1>
+              </div>
+            </div>
+            <p>
+              Especializados em terapia ABA e desenvolvimento infantil com uma
+              abordagem humanizada e científica.
+            </p>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="https://wa.me/5591986438975"
+                ><i class="fab fa-whatsapp"></i
+              ></a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h3>Serviços</h3>
+            <ul class="footer-links">
+              <li><a href="#">Terapia ABA</a></li>
+              <li><a href="#">Atendimento Psicológico</a></li>
+              <li><a href="#">Atividades Lúdicas</a></li>
+              <li><a href="#">Sala de AEE</a></li>
+              <li><a href="#">Orientação Familiar</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h3>Links Úteis</h3>
+            <ul class="footer-links">
+              <li><a href="#">Sobre o Método ABA</a></li>
+              <li><a href="#">Dúvidas Frequentes</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Política de Privacidade</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h3>Horário de Atendimento</h3>
+            <p>
+              Segunda a Sexta: 8h às 18h<br />
+              Sábado: 8h às 12h<br />
+              Domingo: Fechado
+            </p>
+            <a
+              href="https://wa.me/5591986438975"
+              class="btn-contato"
+              style="display: inline-block; margin-top: 15px"
+              >Agendar Consulta</a
+            >
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            &copy; 2023 ASAG Clínica Comportamental - Todos os direitos
+            reservados
+          </p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

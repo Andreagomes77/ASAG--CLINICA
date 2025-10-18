@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>O que é ABA? - ASAG Clínica Comportamental</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      :root {
+        --azul: #2a5c9a;
+        --verde: #4caf8a;
+        --rosa: #e87b9d;
+        --cinza-claro: #f5f7fa;
+        --cinza-escuro: #333333;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      body {
+        color: var(--cinza-escuro);
+        line-height: 1.6;
+        background-color: var(--cinza-claro);
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* Header */
+      header {
+        background-color: white;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        position: fixed;
+        width: 100%;
+        z-index: 100;
+      }
+
+      .header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 0;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+      }
+
+      .logo-icon {
+        width: 80px;
+        height: 60px;
+        margin-right: 15px;
+      }
+
+      .logo-icon img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      .logo-text h1 {
+        font-size: 20px;
+        color: var(--azul);
+        font-weight: 300;
+      }
+
+      .logo-text span {
+        color: var(--verde);
+      }
+
+      nav ul {
+        display: flex;
+        list-style: none;
+      }
+
+      nav ul li {
+        margin-left: 30px;
+      }
+
+      nav ul li a {
+        text-decoration: none;
+        color: var(--cinza-escuro);
+        font-weight: 500;
+        transition: color 0.3s;
+      }
+
+      nav ul li a:hover {
+        color: var(--rosa);
+      }
+
+      .btn-contato {
+        background-color: var(--rosa);
+        color: white;
+        padding: 10px 20px;
+        border-radius: 30px;
+        font-weight: 600;
+        transition: background-color 0.3s;
+      }
+
+      .btn-contato:hover {
+        background-color: #d76a8a;
+        color: white;
+      }
+
+      /* Hero Section */
+      .hero {
+        background-color: var(--azul);
+        padding: 150px 0 80px;
+        text-align: center;
+        color: white;
+      }
+
+      .hero h1 {
+        font-size: 42px;
+        margin-bottom: 20px;
+      }
+
+      .hero p {
+        font-size: 18px;
+        max-width: 700px;
+        margin: 0 auto;
+      }
+
+      /* Conteúdo ABA */
+      .aba-content {
+        padding: 80px 0;
+        background-color: white;
+      }
+
+      .section-title {
+        text-align: center;
+        margin-bottom: 60px;
+      }
+
+      .section-title h2 {
+        font-size: 36px;
+        color: var(--azul);
+        margin-bottom: 15px;
+      }
+
+      .section-title p {
+        max-width: 700px;
+        margin: 0 auto;
+        color: #666;
+      }
+
+      .info-card {
+        background-color: var(--cinza-claro);
+        border-radius: 10px;
+        padding: 30px;
+        margin-bottom: 40px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      }
+
+      .info-card h3 {
+        font-size: 24px;
+        color: var(--azul);
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+      }
+
+      .info-card h3 i {
+        margin-right: 10px;
+        color: var(--rosa);
+      }
+
+      .info-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin-top: 50px;
+      }
+
+      .info-item {
+        background-color: white;
+        border-radius: 10px;
+        padding: 25px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s;
+      }
+
+      .info-item:hover {
+        transform: translateY(-5px);
+      }
+
+      .info-item h4 {
+        font-size: 20px;
+        color: var(--azul);
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+      }
+
+      .info-item h4 i {
+        margin-right: 10px;
+        color: var(--verde);
+      }
+
+      .benefits-list {
+        list-style: none;
+        margin-top: 30px;
+      }
+
+      .benefits-list li {
+        margin-bottom: 15px;
+        padding-left: 30px;
+        position: relative;
+      }
+
+      .benefits-list li:before {
+        content: "✓";
+        color: var(--verde);
+        font-weight: bold;
+        position: absolute;
+        left: 0;
+      }
+
+      .cta-section {
+        background: linear-gradient(135deg, var(--azul), var(--verde));
+        padding: 80px 0;
+        text-align: center;
+        color: white;
+      }
+
+      .cta-section h2 {
+        font-size: 36px;
+        margin-bottom: 20px;
+      }
+
+      .cta-section p {
+        max-width: 700px;
+        margin: 0 auto 30px;
+        font-size: 18px;
+      }
+
+      .btn {
+        padding: 15px 30px;
+        border-radius: 30px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s;
+        display: inline-block;
+      }
+
+      .btn-light {
+        background-color: white;
+        color: var(--azul);
+      }
+
+      .btn-light:hover {
+        background-color: var(--cinza-claro);
+        transform: translateY(-3px);
+      }
+
+      /* Footer */
+      footer {
+        background-color: var(--cinza-escuro);
+        color: white;
+        padding: 50px 0 20px;
+      }
+
+      .footer-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 40px;
+        margin-bottom: 40px;
+      }
+
+      .footer-col h3 {
+        font-size: 20px;
+        margin-bottom: 25px;
+        position: relative;
+        padding-bottom: 10px;
+      }
+
+      .footer-col h3::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 50px;
+        height: 2px;
+        background-color: var(--rosa);
+      }
+
+      .footer-col p {
+        margin-bottom: 20px;
+        opacity: 0.8;
+      }
+
+      footer .logo-icon img {
+        filter: brightness(0) invert(1);
+      }
+
+      .footer-links li {
+        margin-bottom: 15px;
+        list-style: none;
+      }
+
+      .footer-links a {
+        color: white;
+        opacity: 0.8;
+        text-decoration: none;
+        transition: opacity 0.3s;
+      }
+
+      .footer-links a:hover {
+        opacity: 1;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 15px;
+      }
+
+      .social-links a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        color: white;
+        transition: background-color 0.3s;
+      }
+
+      .social-links a:hover {
+        background-color: var(--rosa);
+      }
+
+      .footer-bottom {
+        text-align: center;
+        padding-top: 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        font-size: 14px;
+        opacity: 0.7;
+      }
+
+      /* Responsivo */
+      @media (max-width: 768px) {
+        .header-container {
+          flex-direction: column;
+          padding: 15px 0;
+        }
+
+        .logo {
+          margin-bottom: 15px;
+        }
+
+        nav ul {
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+
+        nav ul li {
+          margin: 0 10px 10px;
+        }
+
+        .hero {
+          padding: 130px 0 60px;
+        }
+
+        .hero h1 {
+          font-size: 32px;
+        }
+
+        .section-title h2 {
+          font-size: 30px;
+        }
+
+        .info-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="container header-container">
+        <a href="INDEX.HTML" class="logo">
+          <div class="logo-icon">
+            <img
+              src="/imagem/logo-asag.jpg"
+              alt="ASAG Clínica Comportamental Logo"
+            />
+          </div>
+          <div class="logo-text">
+            <h1>ASAG <span>Clínica</span></h1>
+          </div>
+        </a>
+        <nav>
+          <ul>
+            <li><a href="INDEX.HTML">Serviços</a></li>
+            <li><a href="index.html#sobre">Sobre Nós</a></li>
+            <li><a href="index.html#contato">Contato</a></li>
+            <li>
+              <a href="https://wa.me/5591986438975" class="btn-contato"
+                >Agendar Consulta</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <h1>O que é ABA?</h1>
+        <p>
+          Conheça a Análise do Comportamento Aplicada e seus benefícios para o
+          desenvolvimento
+        </p>
+      </div>
+    </section>
+
+    <!-- Conteúdo ABA -->
+    <section class="aba-content">
+      <div class="container">
+        <div class="info-card">
+          <h3><i class="fas fa-question-circle"></i> O que significa ABA?</h3>
+          <p>
+            ABA significa <strong>Applied Behavior Analysis</strong> (Análise do
+            Comportamento Aplicada). É uma abordagem científica que estuda o
+            comportamento humano e aplica técnicas para ensinar novas
+            habilidades e reduzir comportamentos que atrapalham o
+            desenvolvimento.
+          </p>
+        </div>
+
+        <div class="info-card">
+          <h3><i class="fas fa-user-friends"></i> Para quem é indicada?</h3>
+          <p>
+            Embora possa ser aplicada em várias áreas, é muito utilizada no
+            tratamento de pessoas com Transtorno do Espectro Autista (TEA),
+            ajudando no desenvolvimento da comunicação, socialização, autonomia
+            e aprendizagem.
+          </p>
+        </div>
+
+        <div class="info-card">
+          <h3><i class="fas fa-cogs"></i> Como funciona na prática?</h3>
+          <ul>
+            <li>O terapeuta observa o comportamento da criança ou adulto.</li>
+            <li>
+              Define metas específicas (ex.: aprender a pedir água, escovar os
+              dentes, interagir com colegas).
+            </li>
+            <li>Divide cada aprendizado em pequenos passos.</li>
+            <li>
+              Usa reforços positivos (elogios, brinquedos, fichas, recompensas)
+              para estimular os progressos.
+            </li>
+            <li>Registra e acompanha a evolução, ajustando as estratégias.</li>
+          </ul>
+        </div>
+
+        <div class="section-title">
+          <h2>Áreas trabalhadas na ABA</h2>
+          <p>A terapia ABA atua em diversas frentes do desenvolvimento</p>
+        </div>
+
+        <div class="info-grid">
+          <div class="info-item">
+            <h4><i class="fas fa-comments"></i> Comunicação</h4>
+            <p>
+              Desenvolvimento de habilidades de comunicação verbal e não verbal,
+              incluindo linguagem expressiva e receptiva.
+            </p>
+          </div>
+
+          <div class="info-item">
+            <h4><i class="fas fa-handshake"></i> Habilidades Sociais</h4>
+            <p>
+              Ensino de interações sociais apropriadas, compartilhamento, espera
+              de vez e reconhecimento de emoções.
+            </p>
+          </div>
+
+          <div class="info-item">
+            <h4><i class="fas fa-user-check"></i> Autonomia</h4>
+            <p>
+              Desenvolvimento de independência em atividades de vida diária como
+              vestir-se, alimentar-se e higiene pessoal.
+            </p>
+          </div>
+
+          <div class="info-item">
+            <h4><i class="fas fa-book"></i> Habilidades Acadêmicas</h4>
+            <p>
+              Fortalecimento de competências em leitura, escrita, matemática
+              básica e seguimento de instruções.
+            </p>
+          </div>
+
+          <div class="info-item">
+            <h4>
+              <i class="fas fa-balance-scale"></i> Controle de Comportamentos
+            </h4>
+            <p>
+              Redução de comportamentos desafiadores e aumento de comportamentos
+              socialmente adequados.
+            </p>
+          </div>
+        </div>
+
+        <div class="section-title">
+          <h2>Benefícios da Terapia ABA</h2>
+          <p>Resultados que transformam vidas</p>
+        </div>
+
+        <ul class="benefits-list">
+          <li>Melhora da comunicação</li>
+          <li>Maior independência no dia a dia</li>
+          <li>Redução de comportamentos repetitivos ou prejudiciais</li>
+          <li>Aumento da interação social</li>
+          <li>Melhora na qualidade de vida da criança e da família</li>
+        </ul>
+        ''
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container">
+        <h2>Quer saber mais sobre a terapia ABA?</h2>
+        <p>
+          Entre em contato conosco para agendar uma avaliação e descobrir como
+          podemos ajudar
+        </p>
+        <a href="https://wa.me/5591986438975" class="btn btn-light">
+          <i class="fab fa-whatsapp"></i> Fale conosco pelo WhatsApp
+        </a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-container">
+          <div class="footer-col">
+            <div class="logo">
+              <div class="logo-icon">
+                <img
+                  src="imagem/logo-asag.jpg"
+                  alt="ASAG Clínica Comportamental Logo"
+                />
+              </div>
+              <div class="logo-text">
+                <h1 style="color: white">
+                  ASAG <span style="color: var(--verde)">Clínica</span>
+                </h1>
+              </div>
+            </div>
+            <p>
+              Especializados em terapia ABA e desenvolvimento infantil com uma
+              abordagem humanizada e científica.
+            </p>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="https://wa.me/5591986438975"
+                ><i class="fab fa-whatsapp"></i
+              ></a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h3>Serviços</h3>
+            <ul class="footer-links">
+              <li><a href="#">Terapia ABA</a></li>
+              <li><a href="#">Atendimento Psicológico</a></li>
+              <li><a href="#">Atividades Lúdicas</a></li>
+              <li><a href="#">Sala de AEE</a></li>
+              <li><a href="#">Orientação Familiar</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h3>Links Úteis</h3>
+            <ul class="footer-links">
+              <li><a href="#">Sobre o Método ABA</a></li>
+              <li><a href="#">Dúvidas Frequentes</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Política de Privacidade</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h3>Horário de Atendimento</h3>
+            <p>
+              Segunda a Sexta: 8h às 18h<br />
+              Sábado: 8h às 12h<br />
+              Domingo: Fechado
+            </p>
+            <a
+              href="https://wa.me/5591986438975"
+              class="btn-contato"
+              style="display: inline-block; margin-top: 15px"
+              >Agendar Consulta</a
+            >
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            &copy; 2023 ASAG Clínica Comportamental - Todos os direitos
+            reservados
+          </p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

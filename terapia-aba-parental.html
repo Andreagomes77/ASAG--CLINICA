@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Terapia ABA Parental - ASAG Clínica Comportamental</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      :root {
+        --azul: #2a5c9a;
+        --verde: #4caf8a;
+        --rosa: #e87b9d;
+        --cinza-claro: #f5f7fa;
+        --cinza-escuro: #333333;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      body {
+        color: var(--cinza-escuro);
+        line-height: 1.6;
+        background-color: var(--cinza-claro);
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* Header */
+      header {
+        background-color: white;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        position: fixed;
+        width: 100%;
+        z-index: 100;
+      }
+
+      .header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 0;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+      }
+      .logo-icon {
+        width: 80px;
+        height: 60px;
+        margin-right: 15px;
+      }
+
+      .logo-icon img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      .logo-icon i {
+        color: white;
+        font-size: 24px;
+      }
+
+      .logo-text h1 {
+        font-size: 20px;
+        color: var(--azul);
+        font-weight: 300;
+      }
+
+      .logo-text span {
+        color: var(--verde);
+      }
+
+      nav ul {
+        display: flex;
+        list-style: none;
+      }
+
+      nav ul li {
+        margin-left: 30px;
+      }
+
+      nav ul li a {
+        text-decoration: none;
+        color: var(--cinza-escuro);
+        font-weight: 500;
+        transition: color 0.3s;
+      }
+
+      nav ul li a:hover {
+        color: var(--rosa);
+      }
+
+      .btn-contato {
+        background-color: var(--rosa);
+        color: white;
+        padding: 10px 20px;
+        border-radius: 30px;
+        font-weight: 600;
+        transition: background-color 0.3s;
+      }
+
+      .btn-contato:hover {
+        background-color: #d76a8a;
+        color: white;
+      }
+
+      /* Hero Section */
+      .hero {
+        background: linear-gradient(135deg, var(--rosa), var(--verde));
+        padding: 150px 0 80px;
+        text-align: center;
+        color: white;
+      }
+
+      .hero h1 {
+        font-size: 42px;
+        margin-bottom: 20px;
+      }
+
+      .hero p {
+        font-size: 18px;
+        max-width: 700px;
+        margin: 0 auto;
+      }
+
+      /* Conteúdo Parental */
+      .parental-content {
+        padding: 80px 0;
+        background-color: white;
+      }
+
+      .section-title {
+        text-align: center;
+        margin-bottom: 60px;
+      }
+
+      .section-title h2 {
+        font-size: 36px;
+        color: var(--azul);
+        margin-bottom: 15px;
+      }
+
+      .section-title p {
+        max-width: 700px;
+        margin: 0 auto;
+        color: #666;
+      }
+
+      .info-card {
+        background-color: var(--cinza-claro);
+        border-radius: 10px;
+        padding: 30px;
+        margin-bottom: 40px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      }
+
+      .info-card h3 {
+        font-size: 24px;
+        color: var(--azul);
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+      }
+
+      .info-card h3 i {
+        margin-right: 15px;
+        color: var(--rosa);
+      }
+
+      .info-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin-top: 50px;
+      }
+
+      .info-item {
+        background-color: white;
+        border-radius: 10px;
+        padding: 25px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s;
+      }
+
+      .info-item:hover {
+        transform: translateY(-5px);
+      }
+
+      .info-item h4 {
+        font-size: 20px;
+        color: var(--azul);
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+      }
+
+      .info-item h4 i {
+        margin-right: 10px;
+        color: var(--verde);
+      }
+
+      .estrategias-list {
+        list-style: none;
+        margin-top: 30px;
+      }
+
+      .estrategias-list li {
+        margin-bottom: 15px;
+        padding: 15px 15px 15px 50px;
+        position: relative;
+        background-color: var(--cinza-claro);
+        border-radius: 5px;
+        border-left: 4px solid var(--rosa);
+      }
+
+      .estrategias-list li:before {
+        content: "👨‍👩‍👧‍👦";
+        position: absolute;
+        left: 15px;
+        top: 15px;
+        font-size: 18px;
+      }
+
+      .estrategias-list li strong {
+        color: var(--azul);
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      .papel-pais {
+        background: linear-gradient(135deg, var(--verde), var(--azul));
+        border-radius: 15px;
+        padding: 40px;
+        text-align: center;
+        color: white;
+        margin-top: 50px;
+      }
+
+      .papel-pais h3 {
+        font-size: 28px;
+        margin-bottom: 30px;
+      }
+
+      .papel-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        margin-top: 30px;
+      }
+
+      .papel-item {
+        background-color: rgba(255, 255, 255, 0.1);
+        padding: 25px;
+        border-radius: 10px;
+        backdrop-filter: blur(10px);
+      }
+
+      .papel-item i {
+        font-size: 40px;
+        margin-bottom: 15px;
+        display: block;
+      }
+
+      .papel-item h4 {
+        font-size: 18px;
+        margin-bottom: 10px;
+      }
+
+      .tecnicas {
+        background-color: var(--cinza-claro);
+        border-radius: 10px;
+        padding: 30px;
+        margin: 40px 0;
+      }
+
+      .tecnicas h3 {
+        color: var(--rosa);
+        margin-bottom: 20px;
+        font-size: 24px;
+        display: flex;
+        align-items: center;
+      }
+
+      .tecnicas h3 i {
+        margin-right: 15px;
+        color: var(--rosa);
+      }
+
+      .tecnicas-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+        margin-top: 20px;
+      }
+
+      .tecnica-item {
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        border-top: 3px solid var(--verde);
+      }
+
+      .tecnica-item h5 {
+        color: var(--azul);
+        font-size: 16px;
+        margin-bottom: 10px;
+      }
+
+      .cta-section {
+        background: linear-gradient(135deg, var(--azul), var(--verde));
+        padding: 80px 0;
+        text-align: center;
+        color: white;
+      }
+
+      .cta-section h2 {
+        font-size: 36px;
+        margin-bottom: 20px;
+      }
+
+      .cta-section p {
+        max-width: 700px;
+        margin: 0 auto 30px;
+        font-size: 18px;
+      }
+
+      .btn {
+        padding: 15px 30px;
+        border-radius: 30px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s;
+        display: inline-block;
+        margin: 10px;
+      }
+
+      .btn i {
+        margin-right: 8px;
+      }
+
+      .btn-light {
+        background-color: white;
+        color: var(--azul);
+      }
+
+      .btn-light:hover {
+        background-color: var(--cinza-claro);
+        transform: translateY(-3px);
+      }
+
+      /* Footer */
+      footer {
+        background-color: var(--cinza-escuro);
+        color: white;
+        padding: 50px 0 20px;
+      }
+
+      .footer-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 40px;
+        margin-bottom: 40px;
+      }
+
+      .footer-col h3 {
+        font-size: 20px;
+        margin-bottom: 25px;
+        position: relative;
+        padding-bottom: 10px;
+      }
+
+      .footer-col h3::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 50px;
+        height: 2px;
+        background-color: var(--rosa);
+      }
+
+      .footer-col p {
+        margin-bottom: 20px;
+        opacity: 0.8;
+      }
+
+      .footer-links li {
+        margin-bottom: 15px;
+        list-style: none;
+      }
+
+      .footer-links a {
+        color: white;
+        opacity: 0.8;
+        text-decoration: none;
+        transition: opacity 0.3s;
+      }
+
+      .footer-links a:hover {
+        opacity: 1;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 15px;
+      }
+
+      .social-links a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        color: white;
+        transition: background-color 0.3s;
+      }
+
+      .social-links a:hover {
+        background-color: var(--rosa);
+      }
+
+      .footer-bottom {
+        text-align: center;
+        padding-top: 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        font-size: 14px;
+        opacity: 0.7;
+      }
+
+      /* Responsivo */
+      @media (max-width: 768px) {
+        .header-container {
+          flex-direction: column;
+          padding: 15px 0;
+        }
+
+        .logo {
+          margin-bottom: 15px;
+        }
+
+        nav ul {
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+
+        nav ul li {
+          margin: 0 10px 10px;
+        }
+
+        .hero {
+          padding: 130px 0 60px;
+        }
+
+        .hero h1 {
+          font-size: 32px;
+        }
+
+        .section-title h2 {
+          font-size: 30px;
+        }
+
+        .info-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .papel-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .tecnicas-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="container header-container">
+        <a href="INDEX.HTML" class="logo">
+          <div class="logo-icon">
+            <img
+              src="/imagem/logo-asag.jpg"
+              alt="ASAG Clínica Comportamental Logo"
+            />
+          </div>
+          <div class="logo-text">
+            <h1>ASAG <span>Clínica</span></h1>
+          </div>
+        </a>
+        <nav>
+          <ul>
+            <li><a href="INDEX.HTML">Serviços</a></li>
+            <li><a href="INDEX.HTML#sobre">Sobre Nós</a></li>
+            <li><a href="INDEX.HTML#contato">Contato</a></li>
+            <li>
+              <a href="https://wa.me/5591986438975" class="btn-contato"
+                >Agendar Consulta</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <h1>Terapia ABA Parental</h1>
+        <p>
+          O Papel Fundamental dos Pais no Desenvolvimento das Crianças através
+          da Análise do Comportamento Aplicada
+        </p>
+      </div>
+    </section>
+
+    <!-- Conteúdo Parental -->
+    <section class="parental-content">
+      <div class="container">
+        <div class="info-card">
+          <h3><i class="fas fa-heart"></i>O que é a Terapia ABA Parental?</h3>
+          <p>
+            A Terapia ABA Parental é uma abordagem que capacita os pais e
+            cuidadores a implementarem estratégias da Análise do Comportamento
+            Aplicada (ABA) no ambiente familiar. Os pais se tornam agentes
+            ativos no processo terapêutico, aprendendo técnicas específicas para
+            promover o desenvolvimento de seus filhos de forma consistente e
+            naturalizada no dia a dia.
+          </p>
+        </div>
+
+        <div class="info-card">
+          <h3>
+            <i class="fas fa-users"></i>Importância da Participação Familiar
+          </h3>
+          <p>
+            A participação ativa dos pais no processo terapêutico multiplica
+            significativamente os resultados da intervenção. Quando a família
+            aplica as estratégias ABA em casa, a criança tem mais oportunidades
+            de praticar e generalizar as habilidades aprendidas, acelerando seu
+            desenvolvimento global.
+          </p>
+        </div>
+
+        <div class="papel-pais">
+          <h3>O Papel dos Pais na Terapia ABA</h3>
+          <div class="papel-grid">
+            <div class="papel-item">
+              <i class="fas fa-graduation-cap"></i>
+              <h4>Co-Terapeutas</h4>
+              <p>Implementam estratégias ABA no ambiente familiar</p>
+            </div>
+            <div class="papel-item">
+              <i class="fas fa-eye"></i>
+              <h4>Observadores</h4>
+              <p>Coletam dados sobre comportamentos e progressos</p>
+            </div>
+            <div class="papel-item">
+              <i class="fas fa-hands-helping"></i>
+              <h4>Facilitadores</h4>
+              <p>Criam oportunidades naturais de aprendizagem</p>
+            </div>
+            <div class="papel-item">
+              <i class="fas fa-chart-line"></i>
+              <h4>Generalização</h4>
+              <p>Ajudam a transferir habilidades para diferentes contextos</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-title">
+          <h2>Estratégias Ensinadas aos Pais</h2>
+          <p>Técnicas práticas para aplicação no ambiente familiar</p>
+        </div>
+
+        <ul class="estrategias-list">
+          <li>
+            <strong>Reforçamento Positivo</strong>
+            Como identificar e usar reforçadores eficazes para motivar
+            comportamentos desejados
+          </li>
+          <li>
+            <strong>Análise Funcional</strong>
+            Compreender as funções dos comportamentos e como modificá-los
+          </li>
+          <li>
+            <strong>Ensino por Tentativas Discretas (DTT)</strong>
+            Estruturação de atividades de ensino em pequenos passos
+          </li>
+          <li>
+            <strong>Ensino Naturalístico</strong>
+            Aproveitamento de momentos cotidianos para ensinar habilidades
+          </li>
+          <li>
+            <strong>Manejo de Comportamentos Desafiadores</strong>
+            Estratégias para lidar com birras, agressividade e outros
+            comportamentos
+          </li>
+          <li>
+            <strong>Comunicação Funcional</strong>
+            Técnicas para desenvolver comunicação verbal e não verbal
+          </li>
+        </ul>
+
+        <div class="tecnicas">
+          <h3><i class="fas fa-tools"></i>Técnicas Específicas por Área</h3>
+          <div class="tecnicas-grid">
+            <div class="tecnica-item">
+              <h5>Comunicação</h5>
+              <p>
+                • Modelagem de linguagem<br />• Expansão de frases<br />•
+                Comunicação por troca de figuras<br />• Reforço de tentativas de
+                comunicação
+              </p>
+            </div>
+            <div class="tecnica-item">
+              <h5>Habilidades Sociais</h5>
+              <p>
+                • Ensino de turnos<br />• Brincadeira paralela e cooperativa<br />•
+                Contato visual<br />• Imitação social
+              </p>
+            </div>
+            <div class="tecnica-item">
+              <h5>Autonomia</h5>
+              <p>
+                • Rotinas de autocuidado<br />• Tarefas domésticas<br />•
+                Independência alimentar<br />• Controle esfincteriano
+              </p>
+            </div>
+            <div class="tecnica-item">
+              <h5>Comportamento</h5>
+              <p>
+                • Redução de estereotipias<br />• Manejo de crises<br />•
+                Seguimento de instruções<br />• Tempo de espera
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-title">
+          <h2>Benefícios da Abordagem Parental</h2>
+          <p>Vantagens de integrar a família no processo terapêutico</p>
+        </div>
+
+        <div class="info-grid">
+          <div class="info-item">
+            <h4><i class="fas fa-rocket"></i>Resultados Acelerados</h4>
+            <p>
+              A prática constante em casa acelera significativamente o
+              desenvolvimento e a aquisição de novas habilidades.
+            </p>
+          </div>
+
+          <div class="info-item">
+            <h4><i class="fas fa-sync-alt"></i>Generalização Natural</h4>
+            <p>
+              Habilidades aprendidas são naturalmente generalizadas para
+              diferentes contextos e situações do dia a dia.
+            </p>
+          </div>
+
+          <div class="info-item">
+            <h4><i class="fas fa-shield-alt"></i>Consistência</h4>
+            <p>
+              Abordagem uniforme entre clínica e casa cria um ambiente mais
+              previsível e eficaz para a criança.
+            </p>
+          </div>
+
+          <div class="info-item">
+            <h4><i class="fas fa-users-cog"></i>Empoderamento Familiar</h4>
+            <p>
+              Pais se sentem mais confiantes e capazes de lidar com desafios
+              comportamentais de forma efetiva.
+            </p>
+          </div>
+
+          <div class="info-item">
+            <h4><i class="fas fa-clock"></i>Otimização do Tempo</h4>
+            <p>
+              Aproveitamento de momentos naturais do dia para trabalhar
+              objetivos terapêuticos específicos.
+            </p>
+          </div>
+
+          <div class="info-item">
+            <h4><i class="fas fa-heart-broken"></i>Redução do Estresse</h4>
+            <p>
+              Famílias desenvolvem estratégias eficazes, reduzindo o estresse e
+              melhorando a qualidade de vida familiar.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container">
+        <h2>Capacite-se como Co-Terapeuta do seu Filho</h2>
+        <p>
+          Aprenda estratégias ABA eficazes para potencializar o desenvolvimento
+          da sua criança no ambiente familiar
+        </p>
+        <div>
+          <a href="https://wa.me/5591986438975" class="btn btn-light">
+            <i class="fab fa-whatsapp"></i>Fale Conosco pelo WhatsApp
+          </a>
+          <a href="https://wa.me/5591986438975" class="btn btn-light">
+            <i class="fas fa-calendar"></i>Agendar Orientação
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-container">
+          <div class="footer-col">
+            <div class="logo">
+              <div class="logo-icon">
+                <i class="fas fa-brain"></i>
+              </div>
+              <div class="logo-text">
+                <h1 style="color: white">
+                  ASAG <span style="color: var(--verde)">Clínica</span>
+                </h1>
+              </div>
+            </div>
+            <p>
+              Especializados em terapia ABA e desenvolvimento infantil com uma
+              abordagem humanizada e científica.
+            </p>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="https://wa.me/5591986438975"
+                ><i class="fab fa-whatsapp"></i
+              ></a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h3>Serviços</h3>
+            <ul class="footer-links">
+              <li><a href="terapia-aba.html">Terapia ABA</a></li>
+              <li>
+                <a href="atendimento-psicologia.html"
+                  >Atendimento Psicológico</a
+                >
+              </li>
+              <li><a href="atividades-ludicas.html">Atividades Lúdicas</a></li>
+              <li><a href="sala-aee.html">Sala de AEE</a></li>
+              <li><a href="terapia-aba-parental.html">ABA Parental</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h3>Links Úteis</h3>
+            <ul class="footer-links">
+              <li><a href="terapia-aba.html">Sobre o Método ABA</a></li>
+              <li><a href="#">Dúvidas Frequentes</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Política de Privacidade</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h3>Horário de Atendimento</h3>
+            <p>
+              Segunda a Sexta: 8h às 18h<br />
+              Sábado: 8h às 12h<br />
+              Domingo: Fechado
+            </p>
+            <a
+              href="https://wa.me/5591986438975"
+              class="btn-contato"
+              style="display: inline-block; margin-top: 15px"
+              >Agendar Consulta</a
+            >
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            &copy; 2023 ASAG Clínica Comportamental - Todos os direitos
+            reservados
+          </p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
